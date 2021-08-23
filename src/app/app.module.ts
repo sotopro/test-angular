@@ -7,7 +7,7 @@ import { ListComponent } from './components/list/list.component';
 import { ItemListComponent } from './components/item-list/item-list.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
-import { PaginatorComponent } from './components/paginator/paginator.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,10 +17,10 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     ItemListComponent,
     ModalComponent,
     SnackbarComponent,
-    PaginatorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
