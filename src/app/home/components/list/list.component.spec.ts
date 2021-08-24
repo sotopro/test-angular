@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListComponent } from './list.component';
+import {MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -8,7 +10,8 @@ describe('ListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListComponent ]
+      imports: [ MatSnackBarModule, MatDialogModule ],
+      declarations: [ ListComponent ],
     })
     .compileComponents();
   });

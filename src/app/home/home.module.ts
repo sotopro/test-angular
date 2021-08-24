@@ -10,7 +10,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { PostsService } from './services/posts.service';
 import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar'
 
 
@@ -31,7 +31,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar'
     MatDialogModule,
     MatSnackBarModule
   ],
-  providers: [PostsService],
+  providers: [PostsService, MatDialog,MatDialogRef],
   bootstrap: [HomeComponent]
 })
 export class HomeModule { }
