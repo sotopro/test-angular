@@ -59,4 +59,23 @@ describe('PostsService', () => {
       req.flush(dummyData);
     });
   });
+  describe('#deletePost', () => {
+    it('should return an Observable<Posts[]>', () => {
+      const dummyData = {
+          "userId": 1,
+          "id": 1,
+          "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+          "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+        };
+
+      service.deletePost(dummyData).subscribe(posts => {
+        expect(posts).toBeTruthy();
+        expect(posts).toEqual(dummyData);
+      });
+
+      const req = httpMock.expectOne(`${service.apiUrl}/${dummyData.id}`);
+      expect(req.request.method).toBe("DELETE");
+      req.flush(dummyData);
+    });
+  });
 });
