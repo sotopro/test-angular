@@ -9,7 +9,8 @@ import { PostsService } from './services/posts.service';
 })
 export class HomeComponent implements OnInit {
   postsData: Posts[]
-  constructor(private postServices: PostsService ) { }
+  posts: Posts;
+  constructor(private postServices: PostsService) { }
 
   ngOnInit(): void {
     this.getAllPosts();
@@ -21,6 +22,14 @@ export class HomeComponent implements OnInit {
     },
       error => console.log(error)
     );
+  }
+  onDelete(posts: Posts) {
+    console.log('Home Components', posts);
+    this.postServices
+      .deletePost(posts)
+      .subscribe(
+        () => (this.postsData = this.postsData.filter((p) => p.id !== posts.id))
+      );
   }
 
 }

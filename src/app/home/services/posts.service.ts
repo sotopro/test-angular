@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Posts } from './Posts';
@@ -14,5 +14,9 @@ export class PostsService {
 
   public getPosts(): Observable<Posts[]> {
     return this.http.get<Posts[]>(this.apiUrl)
+  }
+  public deletePost(posts: Posts): Observable<Posts> {
+    const url = `${this.apiUrl}/${posts.id}`
+    return this.http.delete<Posts>(url)
   }
 }
