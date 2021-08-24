@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
     );
   }
   onDelete(posts: Posts) {
-    console.log('Home Components', posts);
     this.postServices
       .deletePost(posts)
       .subscribe(

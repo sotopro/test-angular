@@ -31,7 +31,6 @@ export class ListComponent implements AfterViewInit   {
     this.dialogService.openConfirmDialog('¿Está seguro que desea eliminar este registro?')
     .afterClosed().subscribe(result =>{
       if(result){
-        console.log('onDelete', {result, posts})
         this.onDeletePost.emit(posts);
         this.dataSource.data = this.dataSource.data.filter(x => x.id !== posts.id);
         this.notificationService.success('¡Se eliminó el registro satisfactoriamente!');
