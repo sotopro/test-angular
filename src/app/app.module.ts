@@ -1,26 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
+import { HomeModule } from './home/home.module';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { ListComponent } from './components/list/list.component';
-import { ItemListComponent } from './components/item-list/item-list.component';
-import { ModalComponent } from './components/modal/modal.component';
-import { SnackbarComponent } from './components/snackbar/snackbar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent},
+];
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    ListComponent,
-    ItemListComponent,
-    ModalComponent,
-    SnackbarComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    HomeModule,
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
   ],
   providers: [],
   bootstrap: [AppComponent]
