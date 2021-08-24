@@ -31,7 +31,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar'
     MatDialogModule,
     MatSnackBarModule
   ],
-  providers: [PostsService, MatDialog,MatDialogRef],
+  providers: [PostsService, MatDialog],
   bootstrap: [HomeComponent]
 })
 export class HomeModule { }
