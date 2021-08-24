@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from './components/header/header.component';
 import { ListComponent } from './components/list/list.component';
 import { ModalComponent } from './components/modal/modal.component';
-import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home.component';
@@ -12,6 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { PostsService } from './services/posts.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar'
 
 
 @NgModule({
@@ -19,7 +19,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     HeaderComponent,
     ListComponent,
     ModalComponent,
-    SnackbarComponent,
     HomeComponent,
   ],
   imports: [
@@ -29,7 +28,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatPaginatorModule,
     MatTableModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [PostsService],
   bootstrap: [HomeComponent]

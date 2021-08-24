@@ -4,7 +4,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource, MatTable} from '@angular/material/table';
 import { DialogService } from 'src/app/shared/dialog.service';
-import { ModalComponent } from '../modal/modal.component';
+import { NotificationService } from 'src/app/shared/notification.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -18,7 +18,7 @@ export class ListComponent implements AfterViewInit   {
   dataSource = new MatTableDataSource<Posts>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatTable) table: MatTable<Posts>;
-  constructor(private dialogService: DialogService) { }
+  constructor(private dialogService: DialogService, private notificationService: NotificationService) { }
 
 
   ngAfterViewInit() {
@@ -34,6 +34,7 @@ export class ListComponent implements AfterViewInit   {
         console.log('onDelete', {result, posts})
         this.onDeletePost.emit(posts);
         this.dataSource.data = this.dataSource.data.filter(x => x.id !== posts.id);
+        this.notificationService.success('¡Se eliminó el registro satisfactoriamente!');
       }
     });
   }
